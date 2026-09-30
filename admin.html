@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin Dashboard | Samrat Chakraborty</title><link rel="stylesheet" href="admin.css"></head><body>
+<div id="loginView" class="auth"><div class="auth-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Logo_of_the_Bharatiya_Janata_Party.svg" alt=""><h1>Admin Login</h1><p>Private content management</p><input id="email" type="email" placeholder="Admin email"><input id="password" type="password" placeholder="Password"><button id="login">Login</button><div id="authMsg"></div></div></div>
+<div id="appView" class="hidden"><header><div><b>Samrat Chakraborty</b><small>Content Admin</small></div><button id="logout">Logout</button></header><main><div class="dash-head"><div><span>ADMIN DASHBOARD</span><h1>Manage Website</h1></div><div id="status"></div></div>
+<section class="tabs"><button class="tab active" data-panel="newsPanel">📰 News</button><button class="tab" data-panel="mediaPanel">📷 Photos & Videos</button><button class="tab" data-panel="socialPanel">🔗 Social Media</button></section>
+<section id="newsPanel" class="panel"><h2>Publish News Article</h2><form id="newsForm"><input name="title" placeholder="Headline" required><div class="row"><input name="category" placeholder="Category"><input name="location" placeholder="Location"></div><input name="featured_image_url" placeholder="Featured image URL (optional)"><input name="excerpt" placeholder="Short excerpt"><textarea name="content" rows="12" placeholder="Article content. Basic HTML is supported."></textarea><label class="check"><input type="checkbox" name="published" checked> Publish immediately</label><button class="save">Publish Article</button></form><h2 class="manage-title">Published Articles</h2><div id="newsList"></div></section>
+<section id="mediaPanel" class="panel hidden"><h2>Upload Photo / Video</h2><form id="mediaForm"><input name="title" placeholder="Title" required><textarea name="caption" rows="3" placeholder="Caption"></textarea><select name="type"><option value="photos">Photo</option><option value="videos">Video</option></select><input id="mediaFile" type="file" accept="image/*,video/*" required><label class="check"><input type="checkbox" name="published" checked> Publish immediately</label><button class="save">Upload & Publish</button></form><h2 class="manage-title">Media Library</h2><div id="mediaList"></div></section>
+
+<section id="socialPanel" class="panel hidden">
+ <h2>Social Media Links</h2>
+ <p class="help">Paste the exact official profile URL. Visitors can tap a card on the public website to open it. You can change these links anytime.</p>
+ <form id="socialForm">
+  <input name="name" placeholder="Display name e.g. Facebook" required>
+  <select name="platform"><option value="facebook">Facebook</option><option value="instagram">Instagram</option><option value="youtube">YouTube</option><option value="x">X</option><option value="whatsapp">WhatsApp</option><option value="website">Website</option></select>
+  <input name="url" type="url" placeholder="https://..." required>
+  <div class="row"><input name="sort_order" type="number" value="1" min="0"><label class="check"><input type="checkbox" name="enabled" checked> Show on website</label></div>
+  <button class="save">Save Social Link</button>
+ </form>
+ <h2 class="manage-title">Current Social Links</h2>
+ <div id="socialList"></div>
+</section>
+</main></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="admin.js"></script></body></html>
